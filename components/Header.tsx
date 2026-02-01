@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { NAV_ITEMS } from '../constants';
+// @ts-ignore
 import University_logo from './University_logo.png';
 
 const Header: React.FC = () => {

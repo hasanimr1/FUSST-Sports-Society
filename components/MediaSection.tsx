@@ -1,7 +1,13 @@
 
 import React from 'react';
 import { Camera, ExternalLink, Play } from 'lucide-react';
-import { GALLERY_IMAGES } from '../constants';
+// @ts-ignore
+import Miss_Dareema from './images/Miss_Dareema.jpeg';
+// @ts-ignore
+import Sir_Abdur_Rehman from './images/Sir_Abdur_Rehman.jpeg';
+// @ts-ignore
+import Sir_Sharjeel from './images/Sir_Sharjeel.jpeg';
+
 
 const MediaSection: React.FC = () => {
   return (
@@ -20,20 +26,28 @@ const MediaSection: React.FC = () => {
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {[
-                'Abdul Ahad',
-                'Dua',
-                'Hassaan',
-                'Dr Abdul Rehman',
-                'Miss Dareema Ali',
-                'Engr. Sharjeel Farooqui'
-              ].map((name) => {
-                const initials = name.split(' ').map(n => n[0]).join('').slice(0,3).toUpperCase();
+                { name: 'Abdul Ahad', image: '' },
+                { name: 'Dua Anjum', image: '' },
+                { name: 'Hassaan Khan Niazi', image: '' },
+                { name: 'Dr Abdul Rehman', image: Sir_Abdur_Rehman },
+                { name: 'Miss Dareema Ali', image: Miss_Dareema },
+                { name: 'Engr. Sharjeel Farooqui', image: Sir_Sharjeel }
+              ].map((person) => {
+                const initials = person.name.split(' ').map(n => n[0]).join('').slice(0,3).toUpperCase();
                 return (
-                  <div key={name} className="flex flex-col items-center text-center">
-                    <div className="w-28 h-28 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 text-lg font-bold mb-3 border border-slate-200">
-                      <span aria-hidden>{initials}</span>
+                  <div key={person.name} className="flex flex-col items-center text-center">
+                    <div className="w-28 h-28 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 text-lg font-bold mb-3 border border-slate-200 overflow-hidden">
+                      {person.image ? (
+                        <img 
+                          src={person.image} 
+                          alt={person.name} 
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <span aria-hidden>{initials}</span>
+                      )}
                     </div>
-                    <p className="text-sm font-semibold text-slate-700">{name}</p>
+                    <p className="text-sm font-semibold text-slate-700">{person.name}</p>
                   </div>
                 );
               })}

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Instagram, Facebook, Twitter, Mail, MapPin, Phone } from 'lucide-react';
+// @ts-ignore
 import University_logo from './University_logo.png';
 
 const Footer: React.FC = () => {
